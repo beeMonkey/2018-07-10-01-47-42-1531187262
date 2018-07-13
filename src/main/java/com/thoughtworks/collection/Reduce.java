@@ -22,7 +22,7 @@ public class Reduce {
     }
 
     public double getAverage() {
-        throw new NotImplementedException();
+        return arrayList.stream().mapToInt(n->n).summaryStatistics().getAverage();//.average().getAsInt();
     }
 
     public double getOrderedMedian() {
@@ -30,7 +30,7 @@ public class Reduce {
     }
 
     public int getFirstEven() {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(num->num%2==0).findFirst().get();
     }
 
     public int getIndexOfFirstEven() {
@@ -38,7 +38,15 @@ public class Reduce {
     }
 
     public boolean isEqual(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        boolean isequal=true;
+        for(int i=0;i<this.arrayList.size();i++){
+            for(int j=0;j<arrayList.size();j++){
+                if(this.arrayList.get(i)!=arrayList.get(j)){
+                    isequal=false;
+                }
+            }
+        }
+        return isequal;
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {

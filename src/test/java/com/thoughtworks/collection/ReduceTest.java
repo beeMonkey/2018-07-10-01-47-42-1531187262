@@ -39,7 +39,7 @@ public class ReduceTest {
         List<Integer> arrayList = Arrays.asList(array);
 
         Reduce reduce = new Reduce(arrayList);
-
+        //System.out.print(reduce.getAverage());
         assertThat(reduce.getAverage()).isEqualTo(48.5);
     }
 
