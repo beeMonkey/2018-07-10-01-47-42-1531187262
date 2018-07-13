@@ -34,7 +34,8 @@ public class Reduce {
     }
 
     public int getIndexOfFirstEven() {
-        throw new NotImplementedException();
+        int firstEven=arrayList.stream().filter(num->num%2==0).findFirst().get();
+        return arrayList.indexOf(firstEven);
     }
 
     public boolean isEqual(List<Integer> arrayList) {
@@ -54,10 +55,10 @@ public class Reduce {
     }
 
     public int getLastOdd() {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(num->num%2!=0).reduce((first,second)->second).get();
     }
 
     public int getIndexOfLastOdd() {
-        throw new NotImplementedException();
+        return arrayList.indexOf(getLastOdd());
     }
 }

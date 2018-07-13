@@ -110,7 +110,16 @@ public class Add {
     }
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-        throw new NotImplementedException();
+         List<Integer> evenList=arrayList.stream()
+                                .filter(num->num%2==0)
+                                .sorted()
+                                .collect(Collectors.toList());
+        List<Integer> oddList=arrayList.stream()
+                .filter(num -> num % 2 != 0)
+                .sorted((num1, num2) -> num2 - num1)
+                .collect(Collectors.toList());
+         evenList.addAll(oddList);
+         return evenList;
     }
 
     public List<Integer> getProcessedList(List<Integer> arrayList) {

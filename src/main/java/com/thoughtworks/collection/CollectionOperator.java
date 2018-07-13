@@ -2,6 +2,7 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import javax.print.attribute.IntegerSyntax;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -79,14 +80,8 @@ public class CollectionOperator {
             result.add(firstArray[i]);
         }
 
-        for(int i=0;i<firstArray.length;i++){
-            for(int j=0;j<secondArray.length;j++){
-                if(firstArray[i]!=secondArray[j]){
-                    result.add(firstArray[i]);
-                }
-            }
-        }
-        System.out.println(result);
+        List<Integer> ucommonList=Arrays.stream(secondArray).filter(numInSecond-> !Arrays.stream(firstArray).anyMatch(numInFirst->numInFirst.equals(numInSecond))).collect(Collectors.toList());
+        result.addAll(ucommonList);
         return result;
     }
 }
